@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Account</title>
+	<style type="text/css">
+		input{
+			display: block;
+			margin-bottom: 10px;
+			padding: 4px;
+			width: 50%;
+			height: 5%;
+			border:0;
+			border-bottom:2px solid black;
+		}
+		.active{
+			border:1px solid green;
+			font-size: 17px;
+			color:blue;
+
+		}
+
+
+	</style>
+
+</head>
+<body>
+<fieldset><legend><h1>Create Account</h1></legend>
+	
+	<form action="printinfo.php" method="post" onsubmit="return validate()">
+		<label for="fullname">Your Full Name</label>
+		<input type="text" name="fullname" id="fullname" class="form-control" placeholder="Enter Your Full Name" />
+		
+		<label for="mobileno">Mobile Number</label>
+		<input type="number" name="mobileno" id="mobileno" class="form-control" placeholder="Enter Mobile Number" />
+
+		<label for="email">Email</label>
+		<input type="email" name="email" id="email" class="form-control" placeholder="Enter email" />
+
+		<label for="rollno">Roll Number(If applicable)</label>
+		<input type="text" name="rollno" id="rollno" class="form-control" placeholder="Enter Roll Number" />
+
+		<label for="username">Enter Username</label>
+		<input type="text" name="username" id="username" class="form-control" placeholder="Enter Username" />
+		
+		<label for="password">Enter Password</label>
+		<input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" />
+		
+		<label for="confpassword">Enter Confirm Password</label>
+		<input type="password" name="confpassword" id="confpassword" class="form-control" placeholder="Enter Confirm Password" />
+		
+		<input type="submit" name="submit" value="Create an Account" class="" id="submit"  />
+
+		
+		
+		
+
+	</form>
+</fieldset>
+</body>
+<script type="text/javascript">
+	function setFocus(e){
+		var element=e.target;
+var elements=document.getElementsByClassName('active');		
+		if(elements.length==1){
+					elements[0].setAttribute('class','form-control');
+
+		}
+				element.setAttribute('class','form-control active');
+
+	}
+
+		var elements=document.getElementsByClassName('form-control');
+		for(var i=0;i<elements.length;i++)
+		{
+			if(elements.type!='submit')
+			{
+				elements[i].addEventListener('focus',setFocus,false);
+			}
+		}
+
+function validate()
+{
+	var pass=document.getElementById('password').value;
+		var confpass=document.getElementById('confpassword').value;
+if(pass!=confpass)
+{
+	alert("Do not mATCH");
+	return false;
+}
+}
+
+
+	</script>
+</html>
